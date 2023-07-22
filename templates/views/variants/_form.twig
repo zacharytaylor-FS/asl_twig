@@ -1,51 +1,59 @@
 <form action='/variants/{% if variant %}{{variant.id}}{% endif %}' method=POST>
-  {% if variant %}
-<input type="hidden" name="id" value="{{ variant.id }}"/>
-  {% endif %}
-  <div class='form_control'>
-    <label for='title'>Title:</label>
-    <br />
-    <input type='text' name='title' value="{{variant.title}}" />  
-  </div>
-  <div class='form_control'>
-    <label for='productId'>Product:</label>
-    <br />
-    <select name='productId'></select>
-    {% for product in products%}
-    <option value='{{product.id}}'
-    {% if products.id == variant.productId %}selected='selected'{% endif %}>
-    {product.title}
-    </option>
-    {%  endfor %}
-  </div>
-  <div class='form_control'>
-    <label for='price'>Price:</label>
-    <br />
-    <input type='text' name='price' value="{{variant.price}}"/>  
-  </div>
-  <div class='form_control'>
-    <label for='slug'>Slug:</label>
-    <br />
-    <input type='text' name='slug' value="{{variant.slug}}"/>  
-  </div>
-  <div class='form_control'>
-    <label for='productId'>Product Id:</label>
-    <br />
-    <input type='text' name='productId' value="{{variant.productId}}"/>  
-  </div>
-  <div class='form_control'>
-    <label for='inventory'>Invetory:</label>
-    <br />
-    <input type='number' name='inventory' value="{{variant.inventory}}"/>  
-  </div>
-  <div class='form_control'>
-    <label for='description'>Description:</label>
-    <br />
-    <textarea name='description'>{{ variant.description }}</textarea>
-  </div>
-  <div class='form_control'>
-  <input type='checkbox' name='is_published' value='{{product.is_published}}' />
-  <label>In Stock</label>
-  </div>
-  <div><button type='submit'>Add Variant</button></div>
+    {% if variant %}
+  <input type="hidden" name="id" value="{{ variant.id }}"/>
+    {% endif %}
+    <div class='form_control'>
+      <label for='title'>Title:</label>
+      <br />
+      <input type='text' name='title' value="{{variant.title}}" />  
+    </div>
+    
+    <div class='form_control'>
+      <label for='productId'>Product:</label>
+      <br />
+      <select name='productId'></select>
+      {% for product in products%}
+      <option value='{{product.id}}'
+      {% if products.id == variant.productId %}selected='selected'{% endif %}>
+      {product.title}
+      </option>
+      {%  endfor %}
+    </div>
+    
+    <div class='form_control'>
+      <label for='price'>Price:</label>
+      <br />
+      <input type='text' name='price' value="{{variant.price}}"/>  
+    </div>
+    
+    <div class='form_control'>
+      <label for='slug'>Slug:</label>
+      <br />
+      <input type='text' name='slug' value="{{variant.slug}}"/>  
+    </div>
+    
+    <div class='form_control'>
+      <label for='productId'>Product Id:</label>
+      <br />
+      <input type='text' name='productId' value="{{variant.productId}}"/>  
+    </div>
+    
+    <div class='form_control'>
+      <label for='inventory'>Invetory:</label>
+      <br />
+      <input type='number' name='inventory' value="{{variant.inventory}}"/>  
+    </div>
+    
+    <div class='form_control'>
+      <label for='description'>Description:</label>
+      <br />
+      <textarea name='description'>{{ variant.description }}</textarea>
+    </div>
+    
+    <div class='form_control'>
+    <input type='checkbox' name='is_published' value='{{product.is_published}}' />
+    <label>In Stock</label>
+    </div>
+    
+    <div><button type='submit'>Add Variant</button></div>
 </form>
