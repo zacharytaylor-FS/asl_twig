@@ -1,0 +1,20 @@
+{% extends "layouts/base.twig" %}
+
+{% block main_content %}
+<a href='/'> < Back</a>
+
+<h1>Welcome this is coming from templates/views/products/index.twig</h1>
+<h2>All Products:</h2>
+<ul style='list-style:none;'>
+  {% for product in products %}
+    <li>
+      ID: {{product.id}} -- Title: {{product.title}} -- {{product.slug}}
+      <a href='/products/{{ product.id }}'>View</a>
+      <a href='/products/{{ product.id }}/edit'>Edit</a>
+      <a href='/products/{{ product.id }}/delete'>Delete</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<a href='/products/new'>Creat New Product</a>
+{% endblock %}

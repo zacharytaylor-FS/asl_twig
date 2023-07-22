@@ -1,0 +1,31 @@
+{% extends "../layouts/base.twig" %}
+
+{% block main_content %}
+  <p>This is coming from templates/views/home</p>
+  <h2>Content Management System - CMS</h2>
+  
+  <nav style='display:flex,flex-decoration:column;'>
+    <ul style="list-style:none;">
+    <p>View All:</p>
+      <li><a href='/products'>Products</a></li>
+      <li><a href='/variants'>Variants</a></li>
+      <li><a href='/images'>Images</a></li>
+    </ul>
+
+    <ul style="list-style:none;">
+    <p>Create New:</p>
+      <li><a href='/products/new'>Product</a></li>
+      <li><a href='/variants/new'>Variant</a></li>
+      <li><a href='/images/new'>Image</a></li>
+    </ul>
+    
+    <ul style="list-style:none; text-decoration:none;">
+    <p>Find By ID:</p>
+      <li><a href='/products/{{product.id}}'>Product</a></li>
+      <li><a href='/variants/{{variant.id}}'>Variant</a></li>
+      <li><a href='/images/{{image.id}}'>Image</a></li>
+    </ul>
+  </nav>
+
+  
+{% endblock %}

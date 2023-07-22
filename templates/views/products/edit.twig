@@ -1,0 +1,10 @@
+{% extends "layouts/base.twig" %}
+
+{% block main_content %}
+<a href='/'> < Back</a>
+
+<h1>Welcome this is coming from templates/views/products/edit.twig</h1>
+
+  {% include "views/products/_form.twig" with { "product": product } %}
+
+{% endblock %}

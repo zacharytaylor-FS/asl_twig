@@ -1,0 +1,12 @@
+<form action='/images/{% if image %}{{image.id}}{% endif %}' method=POST>
+  {% if image %}
+<input type="hidden" name="id" value="{{ image.id }}"/>
+  {% endif %}
+  <div>
+    <label>Id:</label>
+    <br />
+    <input type='text' name='variantId' value="{{image.variantId}}" />  
+  </div>
+ 
+  <div><button type='submit'>Save Image</button></div>
+</form>

@@ -1,0 +1,10 @@
+{% extends "layouts/base.twig" %}
+
+{% block main_content %}
+<a href='/'> < Back</a>
+
+<h1>Welcome this is coming from templates/views/images/edit.twig</h1>
+
+  {% include "views/images/_form.twig" with { "image": image } %}
+
+{% endblock %}

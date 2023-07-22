@@ -1,0 +1,20 @@
+{% extends "layouts/base.twig" %}
+
+{% block main_content %}
+<a href='/'> < Back</a>
+<h1>Welcome this is coming from templates/views/variants/index.twig</h1>
+<h2>All Variants:</h2>
+
+<ul>
+  {% for variant in variants %}
+    <li>
+      ID: {{variant.id}} -- {{variant.name}} -- {{variant.slug}}
+      <a href='/variants/{{ variant.id }}'>View</a>
+      <a href='/variants/{{ variant.id }}/edit'>Edit</a>
+      <a href='/variants/{{ variant.id }}/delete'>Delete</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<a href='/variants/new'>Creat New Variant</a>
+{% endblock %}
