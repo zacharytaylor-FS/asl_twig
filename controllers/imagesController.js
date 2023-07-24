@@ -1,4 +1,4 @@
-const { Image } = require('../models')
+const { Image } = require('../models/Images')
 
 const index = async (req, res) => {
   let images;

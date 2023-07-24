@@ -1,20 +1,19 @@
-const { Products } = require('../models')
+const Products = require('../models/Products')
 // const test_products = require('../data/db_products')
 const index = async (req, res) => {
+  let products = Products.all()
   // console.log(products);
-  let products; 
   if(products) {
-    products = await Products.findAll();
+    // products = await products.find();
     res.render('views/products/index', {products})
-  } else {
-    res.render('views/products/index', [])
+    // res.json(products)
   }
 
 }
 
 const form = async (req, res) => {
   if(req.params.id) {
-    const product = await Products.findByPk(req.params.id)
+    const product = await Products.find(req.params.id)
     res.render('views/products/edit', { product })
   } else {
     res.render('views/products/create', {})
@@ -22,8 +21,12 @@ const form = async (req, res) => {
 }
 
 const show =  async (req, res) => {
-  const product = await Products.findByPk(req.params.id)
-  res.render('views/products/show', { product })
+  const product = await Products.find(req.params.id)
+
+  if(product) {
+    res.render('views/products/show', {product})
+  }
+
 }
 
 const create = async (req, res) => {
@@ -40,9 +43,7 @@ const update = async (req, res) => {
 }
 
 const remove = async (req, res) => {
-  const deleted = await Products.destroy({
-    where: { id: req.params.id }
-  })
+  const product = await Products.remove(req.params.id)
   res.redirect('/products')
 }
 

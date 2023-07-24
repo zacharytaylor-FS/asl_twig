@@ -1,46 +1,50 @@
-const { Variant, Product } = require('../models')
+const Variants = require('../models/Variants')
+// const { Products } = require('../models/Products')
 
 const index = async (req, res) => {
-  let variants;
-  if(variants){
-    variants = await Variant.findAll();
-    console.log(variants);
+  let variants = Variants.all()
+  // console.log(variants);
+  if(variants) {
+    // variants = await variants.find();
     res.render('views/variants/index', {variants})
+    // res.json(variants)
   } else {
-    res.render('views/variants/index')
+    res.json([])
   }
 }
 
 const form = async (req, res) => {
   if(req.params.id) {
-    const products = await Product.findAll()
-    const variant = await Variant.findByPk(req.params.id)
-    res.render('views/variants/edit', { variant, products })
+    const variant = await Variants.find(req.params.id)
+    res.render('views/variants/edit', { variant })
   } else {
-    res.render('views/variants/create')
+    res.render('views/variants/create', {})
   }
 }
-const show =  (req, res) => {
-  const variant = Variant.findByPk(req.params.id)
-  res.render('views/variants/show', { variant })
+
+const show =  async (req, res) => {
+  const variant = await Variants.find(req.params.id)
+  res.render('views/variants/show', {variant})
 }
 
 const create = async (req, res) => {
-  const variant = await Variant.create(...req.body)
-  res.redirect('/variants')
+  const variant = await Variants.create(req.body)
+
+  res.redirect('/variants/' + variant.id)
 }
 
 const update = async (req, res) => {
-  const variant = await Variant.create(...req.body, {
+  const variant = await Variants.update(req.body, {
     where: { id: req.params.id }
   })
-res.redirect(`/variants/ ${req.params.id}`)
+  res.redirect(`/variants/${variant.id}`)
 }
 
 const remove = async (req, res) => {
-  const variant = await Variant.destroy({where: { id: req.params.id }})
+  const deleted = await Variants.destroy({
+    where: { id: req.params.id }
+  })
   res.redirect('/variants')
 }
-
 
 module.exports = { index, show, create, form ,remove, update }

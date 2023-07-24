@@ -1,11 +1,12 @@
 {% extends "layouts/base.twig" %}
 
 {% block main_content %}
-<a href='/'> < Back</a>
+<a href='/products'> < Back</a>
 <h1>Welcome this is coming from templates/views/products/show.twig</h1>
-<h2>About {{ product.title}}</h2>
+<h2>About {{ product.title}} / {{product.slug}}</h2>
 
   <ul>
+    <img src='{{product.img}}' />
     <li>
         <strong>Slug:</strong> {{ product.slug }}
     </li>
@@ -16,7 +17,7 @@
         <strong>Price:</strong> {{ product.price }}
     </li>
     <li>
-        <strong>Inventory:</strong> {{ product.inventory }}
+        <strong>In Stock:</strong> {{ product.is_published }}
     </li>
     <li>
         <strong>Description:</strong> {{ product.description }}
