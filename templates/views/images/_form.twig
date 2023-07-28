@@ -1,9 +1,10 @@
-<form 
-enctype="multipart/form-data"
-action='/images/{% if image %}{{image.id}}{% endif %}' 
-method=POST>
+<form
+  enctype="multipart/form-data"
+  method="POST"
+  action="/images/{% if image.id %}{{ image.id }}{% endif %}">
+
   {% if image.id %}
-<input type="hidden" name="id" value="{{ image.id }}"/>
+    <input type="hidden" name="id" value="{{ image.id }}">
   {% endif %}
 
   <div>
@@ -11,8 +12,8 @@ method=POST>
     <select name="variantId">
       <option>Select Variant...</option>
       {% for variant in variants %}
-        <option value="{{variant.id}}" {% if variant.id == image.variantId %}selected="selected"{% endif %}>
-          {{variant.title}}
+        <option value="{{ variant.id }}" {% if variant.id == image.variantId %}selected="selected"{% endif %}>
+          {{ variant.title }}
         </option>
       {% endfor %}
     </select>
@@ -20,8 +21,9 @@ method=POST>
   <div>
     <label for="image">Upload Image:</label>
     <br />
-    <input type='file' name='image' id="image"/>  
+    <input type="file" name="image" id="image" />
   </div>
- 
-  <div><button type='submit'>Save Image</button></div>
+  <div>
+    <input type="submit" type="submit" />
+  </div>
 </form>

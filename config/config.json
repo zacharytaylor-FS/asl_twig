@@ -2,21 +2,21 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "fs_dev",
+    "database": "database_development",
     "host": "mariadb",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "root",
-    "database": "fs_dev",
+    "database": "database_test",
     "host": "mariadb",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "root",
-    "database": "fs_dev",
+    "database": "database_production",
     "host": "mariadb",
     "dialect": "mysql"
   }

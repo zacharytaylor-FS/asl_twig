@@ -12,6 +12,9 @@ module.exports = {
       variantId: {
         type: Sequelize.INTEGER
       },
+      extension: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

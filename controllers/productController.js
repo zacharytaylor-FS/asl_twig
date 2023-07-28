@@ -1,15 +1,9 @@
 const { Products } = require('../models')
 // const test_products = require('../data/db_products')
 const index = async (req, res) => {
-  // console.log(products);
-  let products; 
-  if(products) {
-    products = await Products.findAll();
-    res.render('views/products/index', {products})
-  } else {
-    res.render('views/products/index', [])
-  }
-
+  const products = await Products.findAll()
+  console.log(products);
+  res.render('views/products/index', {products})
 }
 
 const form = async (req, res) => {
