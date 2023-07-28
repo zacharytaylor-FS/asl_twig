@@ -5,27 +5,28 @@
 
 <h1>Welcome this is coming from templates/views/variants/show.twig</h1>
 <h2>About {{ variant.title}}</h2>
-<p>Product: {{variant.productId}}</p>
-<ul>
+<ul style="list-style:none;">
     <li>
-      <strong>Id:</strong> {{variant.price}} - 
+      <strong>Id:</strong> {{variant.id}}  
     </li>
     <li>
-      <strong>Price:</strong> {{variant.price}} - 
+      <strong>Title:</strong> {{variant.title}}  
     </li>
     <li>
-      <strong>Slug:</strong> {{variant.slug}} - 
+      <strong>URL Slug:</strong> {{variant.slug}} - 
+    </li>
+    <li>
+      <strong>Price:</strong> ${{variant.price}} - 
     </li>
     <li>
       <strong>Inventory:</strong> {{variant.inventory}} - 
     </li>
     <li>
-      <strong>Description:</strong> {{variant.description}} - 
+      <strong>Description:</strong> 
+      <p style="max-width: 500px;"><em>{{ variant.description|raw }}</em></p>
     </li>
 </ul>
-      {# <a href='/products/{{ product.id }}'>View</a> #}
-      <a href='/variants/{{ variant.id }}/edit'>Edit</a> | <a href='/variants/{{ variant.id }}/delete'>Delete</a>
-
-
-<a href='/variants/new'>Creat New Variant</a>
+<p>
+    <a href='/variants/{{ variant.id }}/edit'>Edit</a> | <a href='/variants/{{ variant.id }}/delete'>Delete</a>
+</p>
 {% endblock %}

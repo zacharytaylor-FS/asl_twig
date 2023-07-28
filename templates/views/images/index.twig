@@ -8,8 +8,11 @@
 <ul>
   {% for image in images %}
     <li>
-      ID: {{image.id}} -- {{image.variantId}} 
-      <a href='/images/{{ image.id }}'>View</a>
+      ID: {{ image.id }} -- {{ image.variantId }} 
+      <a href='/images/{{ image.id }}'>{{ image.id }}.jpg</a>
+      <a href='/variants/{{ image.variantId }}'>
+        {{ image.Variant.title }} #{{ image.variantId }}
+      </a>
       <a href='/images/{{ image.id }}/edit'>Edit</a>
       <a href='/images/{{ image.id }}/delete'>Delete</a>
     </li>
