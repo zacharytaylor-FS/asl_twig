@@ -3,11 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products</title>
+  <title>{% block title %}ASL CLass{% endblock %}</title>
+  {% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="app.css">
+  {% endblock %} 
 </head>
 <body>
-  {% include "../partials/_header.twig" %}
-  {% block main_content %}{% endblock %}
-  {% include "../partials/_footer.twig" %}
+  {% include "partials/_header.twig" %}
+  {% block main_content %}
+    <h3>Hello Welcome</h3>
+    <p>THis content is coming from templates/layouts/base.twig</p>
+  {% endblock %}
+  {% include "partials/_footer.twig" %}
+  
+  {% block scripts %}
+  <script type="text/javascript" src="app.js"></script>
+  {% endblock %}
 </body>
 </html>

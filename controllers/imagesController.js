@@ -39,7 +39,7 @@ const update = async (req, res) => {
   })
   req.imageId = req.params.id
   next()
-  res.redirect(`/images/${req.params.id}`)
+  res.redirect('/images/' + req.params.id)
 }
 
 const remove = async (req, res) => {
