@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const imageCtrl = require('../controllers/Images')
+const imageCtrl = require('../controllers/imagesController')
 // Loading in our new middleware
 const { uploadImage } = require('../middlewares')
 router.get('/', imageCtrl.index)

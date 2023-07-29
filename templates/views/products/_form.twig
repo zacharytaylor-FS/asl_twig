@@ -2,26 +2,26 @@
   {% if product %}
 <input type="hidden" name="id" value="{{ product.id }}"/>
   {% endif %}
-  <div>
+  <div class="mb-3">
     <label for='title'>Title:</label>
     <br />
     <input type='text' name='title' id='title' value="{{product.title}}" />  
   </div>
-  <div>
+  <div class="mb-3">
     <label for='slug'>Slug:</label>
     <br />
     <input type='text' name='slug' id='slug' value="{{product.slug}}"/>  
   </div>
-  <div>
+  <div class="mb-3">
     <label for='price'>Price:</label>
     <br />
     <input type='text' name='price' id='price' value="{{product.price}}"/>  
   </div>
-  <div>
+  <div class="mb-3">
   <label>Is Published</label>
   <input type='checkbox' name='is_published' id='is_published' value='true' {% if prouduct.is_published %}checked="checked"{% endif %}/>
   </div>
-  <div>
+  <div class="mb-3">
     <label for='description'>Description:</label>
     <br />
     <textarea rows='10' cols='50' name='description' id='description'>{{ product.description }}</textarea>

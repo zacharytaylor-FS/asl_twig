@@ -1,20 +1,42 @@
 {% extends "layouts/base.twig" %}
 
 {% block main_content %}
-<a href='/'> < Back</a>
-
-<h1>Welcome this is coming from templates/views/products/index.twig</h1>
-<h2>All Products:</h2>
-<ul style='list-style:none;'>
-  {% for product in products %}
-    <li>
-      ID: {{product.id}} -- Title: {{product.title}} -- {{product.slug}}
-      <a href='/products/{{ product.id }}'>View</a>
-      <a href='/products/{{ product.id }}/edit'>Edit</a>
-      <a href='/products/{{ product.id }}/delete'>Delete</a>
-    </li>
-  {% endfor %}
-</ul>
-
-<a href='/products/new'>Creat New Product</a>
+<section class="py-5  container">
+      <a href='/'> < Back</a>
+  <div class="py-5 bg-light">
+    <div class="container">
+        <h2>Welcome this is coming from templates/views/products/index.twig</h2>
+        <h2>All Products:</h2>
+        <a href='/products/new'>Creat New Product</a>
+      <div class="row row-cols-1 row-cols-sm-4 row-cols-md-3 g-3">
+        <div class="col">
+            {% for product in products %}
+          <div class="card shadow-md ">
+            <img src="..." class="card-img-top image-fluid" alt="Card image cap">
+              <div class="card-body">
+              <h5 class="card-title">{{product.title|e}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                {{ product.slug|e }}
+                </h6>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a role="button" class="btn btn-primary btn-sm bt-outline-secondary" href="/products/{{product.id}}/edit">
+                    Edit
+                    </a>
+                    <a role="button" class="btn btn-primary btn-sm bt-outline-secondary" href="/products/{{product.id}}/delete">
+                    Delete
+                    </a>
+                  </div>
+          </div>
+                  ID: {{product.id}} -- Title: {{product.title}} -- {{product.slug}}
+                  <a href='/products/{{ product.id }}'>View</a>
+              </div> #}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
 {% endblock %}

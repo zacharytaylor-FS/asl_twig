@@ -1,0 +1,8 @@
+{% extends "layouts/base.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/style.css">
+{% endblock %}
+
+{% block title %}{{ product.title }}- {{ variant.title }}{% endblock %}

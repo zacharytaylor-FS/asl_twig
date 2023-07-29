@@ -1,0 +1,55 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}All Products{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" type="text/css" href="/public/product-grid.css">
+{% endblock %}
+    
+{% block main_content %}
+<div class="container">
+    <div class="px-4 py-5 my-5 text-center bg-light color-light">  
+        <img class="d-block mx-auto mb-4" src="/public/images/Air-Jordan-3-Retro-Palomino-Product.png" alt width="72" height="57">
+        <h1 class="display-5 fw-bold">A Taylord TRENDz</h1> 
+        <div class="col-lg-6 mx-auto">
+        <p>Checkout out the newest summer fits and styles. Sale, bid, and buy at the click of a finger.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Buy Now</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4 gap-3">BID now</button>
+        </div> 
+    </div>
+
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+                <h2>Change Backround</h2>
+                <p>can make it lighter by using bg-light</p>
+                <button type="button" class="btn btn-outline-light">Button</button>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 text-black bg-light border rounded-3">
+                <h2>Add Borders</h2>
+                <p>can make it lighter by using bg-light</p>
+                <button type="button" class="btn btn-outline-dark">Button</button>
+            </div>
+        </div>
+    </div>
+
+    {% for product in products %}
+    <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+  <h3>{{product.title}}</h3>
+    <p class="card-text">
+    $ {{product.price}}
+    </p>
+  </div>
+</div>
+    <li>{{product.title}}</li>
+    {% endfor %}
+{% endblock %}
+</div>
