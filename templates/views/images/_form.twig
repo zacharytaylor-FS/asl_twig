@@ -1,7 +1,8 @@
 <form
   enctype="multipart/form-data"
   method="POST"
-  action="/images/{% if image.id %}{{ image.id }}{% endif %}">
+  action="/images/{% if image.id %}{{ image.id }}{% endif %}"
+  class="my-3">
 
   {% if image.id %}
     <input type="hidden" name="id" value="{{ image.id }}">
